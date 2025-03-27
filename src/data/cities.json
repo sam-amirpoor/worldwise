@@ -1,0 +1,28 @@
+{
+  "cities": [
+    {
+      "cityName": "Karaj",
+      "country": "Iran (Islamic Republic of)",
+      "emoji": "🇮🇷",
+      "date": "2025-03-27T17:52:14.684Z",
+      "notes": "some notes",
+      "position": {
+        "lat": "35.86116990974301",
+        "lng": "50.898735523223884"
+      },
+      "id": 1
+    },
+    {
+      "cityName": "Pervari",
+      "country": "Turkiye",
+      "emoji": "🇹🇷",
+      "date": "2025-03-27T17:52:27.894Z",
+      "notes": "",
+      "position": {
+        "lat": "37.94419750075404",
+        "lng": "42.69287109375001"
+      },
+      "id": 2
+    }
+  ]
+}
