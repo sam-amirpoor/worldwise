@@ -10,7 +10,7 @@
 
 ✔️ Interactive Map (Leaflet.js)  
 ✔️ City Tracking - Add/Delete destinations  
-✔️ User (Fake) Authentication
+✔️ User (Fake) Authentication     
 ✔️ State Management with Context API  
 ✔️ Responsive UI with CSS Modules
 
