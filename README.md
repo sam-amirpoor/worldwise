@@ -2,7 +2,9 @@
 
 **WorldWise** is a React-based travel application that allows users to mark visited cities on an interactive map and add notes about their trips. Built as part of Jonas Schmedtmann's **React - The Complete Guide** course.
 
-![WorldWise Screenshot](./preview.gif)
+<div align="center">
+  <img src="./preview.gif" />
+</div>
 
 ## 🚀 Features
 
