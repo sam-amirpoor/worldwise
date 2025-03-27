@@ -63,7 +63,7 @@ npm run dev
 
 ## 🔧 Customization
 
-Edit `data/cities.json` to modify initial data:
+Edit `src/data/cities.json` to modify initial data:
 
 ```json
 {
