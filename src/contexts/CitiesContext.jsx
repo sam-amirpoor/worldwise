@@ -4,7 +4,6 @@ import {
   useEffect,
   useContext,
   useReducer,
-  useCallback,
 } from "react";
 
 const BASE_URL = "http://localhost:5003";
@@ -56,91 +55,77 @@ function CitiesProvider({ children }) {
     initState
   );
 
-  const stableDispatch = useCallback(dispatch, []);
-
-  useEffect(() => {
-    const controller = new AbortController();
-
+  useEffect(function () {
     async function fetchData() {
-      stableDispatch({ type: "loading" });
+      dispatch({ type: "loading" });
       try {
-        const res = await fetch(`${BASE_URL}/cities`, {
-          signal: controller.signal,
-        });
+        const res = await fetch(`${BASE_URL}/cities`);
         const data = await res.json();
-        stableDispatch({ type: "cities/loaded", payload: data });
+        dispatch({ type: "cities/loaded", payload: data });
       } catch (e) {
-        if (e.name !== "AbortError") {
-          stableDispatch({
-            type: "rejected",
-            payload: "There was an error loading data:(",
-          });
-        }
+        dispatch({
+          type: "rejected",
+          payload: "There was an error loading data:(",
+        });
       }
     }
 
     fetchData();
+  }, []);
 
-    return () => controller.abort();
-  }, [stableDispatch]);
+  async function getCity(id) {
+    if (Number(id) === currentCity.id) return;
+    dispatch({ type: "loading" });
 
-  const getCity = useCallback(
-    async (id) => {
-      if (currentCity?.id === Number(id)) return;
-      stableDispatch({ type: "loading" });
+    try {
+      const res = await fetch(`${BASE_URL}/cities/${id}`);
+      const data = await res.json();
+      dispatch({ type: "city/loaded", payload: data });
+    } catch (e) {
+      dispatch({
+        type: "rejected",
+        payload: "There was an error loading data :(",
+      });
+    }
+  }
 
-      try {
-        const res = await fetch(`${BASE_URL}/cities/${id}`);
-        const data = await res.json();
-        stableDispatch({ type: "city/loaded", payload: data });
-      } catch (e) {
-        stableDispatch({
-          type: "rejected",
-          payload: "There was an error loading city data :(",
-        });
-      }
-    },
-    [currentCity, stableDispatch]
-  );
+  async function createCity(newCity) {
+    dispatch({ type: "loading" });
 
-  const createCity = useCallback(
-    async (newCity) => {
-      stableDispatch({ type: "loading" });
-      try {
-        const res = await fetch(`${BASE_URL}/cities`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(newCity),
-        });
-        const data = await res.json();
-        stableDispatch({ type: "city/created", payload: data });
-      } catch (e) {
-        stableDispatch({
-          type: "rejected",
-          payload: "There was an error creating city :(",
-        });
-      }
-    },
-    [stableDispatch]
-  );
+    try {
+      const res = await fetch(`${BASE_URL}/cities`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newCity),
+      });
+      const data = await res.json();
+      dispatch({ type: "city/created", payload: data });
+    } catch (e) {
+      dispatch({
+        type: "rejected",
+        payload: "There was an error creating city :(",
+      });
+    }
+  }
 
-  const deleteCity = useCallback(
-    async (id) => {
-      stableDispatch({ type: "loading" });
-      try {
-        await fetch(`${BASE_URL}/cities/${id}`, {
-          method: "DELETE",
-        });
-        stableDispatch({ type: "city/deleted", payload: id });
-      } catch (e) {
-        stableDispatch({
-          type: "rejected",
-          payload: "There was an error deleting city :(",
-        });
-      }
-    },
-    [stableDispatch]
-  );
+  async function deleteCity(id) {
+    dispatch({ type: "loading" });
+
+    try {
+      const res = await fetch(`${BASE_URL}/cities/${id}`, {
+        method: "DELETE",
+      });
+      dispatch({
+        type: "city/deleted",
+        payload: id,
+      });
+    } catch (e) {
+      dispatch({
+        type: "rejected",
+        payload: "There was an error deleting city :(",
+      });
+    }
+  }
 
   return (
     <CitiesContext.Provider

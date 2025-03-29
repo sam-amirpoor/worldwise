@@ -23,7 +23,7 @@ function City() {
     function () {
       getCity(id);
     },
-    [id, getCity]
+    [id]
   );
 
   if (isLoading) return <Spinner />;
