@@ -1,4 +1,4 @@
-import PageNav from "../components/PageNav";
+import PageNav from "../components/PageNav/PageNav";
 import styles from "./Homepage.module.css";
 import { useAuth } from "../contexts/FakeAuthContext";
 import { Link, useNavigate } from "react-router-dom";

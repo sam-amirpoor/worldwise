@@ -10,7 +10,7 @@
 
 ✔️ Interactive Map (Leaflet.js)  
 ✔️ City Tracking - Add/Delete destinations  
-✔️ User (Fake) Authentication     
+✔️ User (Fake) Authentication  
 ✔️ State Management with Context API  
 ✔️ Styling UI with CSS Modules
 
@@ -63,7 +63,7 @@ npm run dev
 
 ## 🔧 Customization
 
-Edit `src/data/cities.json` to modify initial data:
+Edit `data/cities.json` to modify initial data:
 
 ```json
 {
@@ -76,14 +76,26 @@ Edit `src/data/cities.json` to modify initial data:
 ## 📂 Project Structure
 
 ```
-📦src
- ┣ 📂components
- ┣ 📂contexts
+📦worldwise
  ┣ 📂data
- ┣ 📂hooks
- ┣ 📂pages
- ┣ 📜index.css
- ┗ 📜main.jsx
+ ┣ 📂node_modules
+ ┣ 📂public
+ ┣ 📂src
+ ┃ ┣ 📂components
+ ┃ ┣ 📂contexts
+ ┃ ┣ 📂hooks
+ ┃ ┣ 📂pages
+ ┃ ┣ 📜index.css
+ ┃ ┗ 📜main.jsx
+ ┣ 📜.eslintrc.cjs
+ ┣ 📜.eslintrc.json
+ ┣ 📜.gitignore
+ ┣ 📜index.html
+ ┣ 📜package-lock.json
+ ┣ 📜package.json
+ ┣ 📜preview.gif
+ ┣ 📜README.md
+ ┗ 📜vite.config.js
 ```
 
 ---
