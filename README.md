@@ -12,7 +12,7 @@
 ✔️ City Tracking - Add/Delete destinations  
 ✔️ User (Fake) Authentication  
 ✔️ State Management with Context API  
-✔️ Styling UI with CSS Modules
+✔️ Styling UI with CSS Modules  
 ✔️ Lazy Loading
 
 ## 🛠 Tech Stack
