@@ -5,15 +5,8 @@ import { CitiesProvider } from "../contexts/CitiesContext";
 import { AuthProvider } from "../contexts/FakeAuthContext";
 import ProtectedRoute from "../pages/ProtectedRoute";
 
-// import AppLayout from "../pages/AppLayout";
-// import HomePage from "../pages/Homepage";
-// import Login from "../pages/Login";
-// import Pricing from "../pages/Pricing";
-// import Product from "../pages/Product";
-// import PageNotFound from "../pages/PageNotFound";
-
 const AppLayout = lazy(() => import("../pages/AppLayout"));
-const HomePage = lazy(() => import("../pages/HomePage"));
+const HomePage = lazy(() => import("../pages/Homepage"));
 const Login = lazy(() => import("../pages/Login"));
 const Pricing = lazy(() => import("../pages/Pricing"));
 const Product = lazy(() => import("../pages/Product"));
