@@ -13,6 +13,7 @@
 ✔️ User (Fake) Authentication  
 ✔️ State Management with Context API  
 ✔️ Styling UI with CSS Modules
+✔️ Lazy Loading
 
 ## 🛠 Tech Stack
 
