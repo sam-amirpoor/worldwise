@@ -58,7 +58,7 @@ npm run dev
 
 <br />
 
-5. Open user browser and enter `http://localhost:5173`
+5. Open your browser and enter `http://localhost:5173`
 
 <br />
 
